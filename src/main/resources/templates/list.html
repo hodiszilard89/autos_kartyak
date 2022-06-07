@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" , charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body>
+<title th:text="${pageTitle}">Prog. környezetek</title>
+</br>
+<title>Spring proba</title>
+<div class="container">
+
+    <div class="row">
+        <div class="text-left"><h1>Kártyák listája</h1></div>
+        <div class="col text-right">
+            <a style="margin: 50px" th:href="@{'/lista'}" class="btn btn-info" role="button"/>Menu</a>
+        </div>
+    </div>
+</div>
+    <div class="row" style="margin: auto">
+        <div class="col-sm-8">
+            <div class="panel-body">
+                <table id="tbl-vizsga" class="table table-responsive table-bordered">
+                    <thead >
+                    <tr >
+                        <th>Gyáró</th>
+                        <th>Típus</th>
+                        <th>Teljesítmény</th>
+                        <th>Gyorsulás 0-100km</th>
+                        <th>Hengerek száma</th>
+                        <th>Legnagyobb sebesség</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    <tr th:each="kartya: ${kartya}" >
+                        <th th:text="${kartya.gyarto}"/>
+                        <th th:text="${kartya.tipus}"/>
+                        <th th:text="${kartya.telje}"/>
+                        <th th:text="${kartya.gyors}"/>
+                        <th th:text="${kartya.hszam}"/>
+                        <th th:text="${kartya.lgsb}"/>
+<!--                        <th><a th:href="@{'/vizsgafelvetel/'+${vizsga.id}}" class="btn btn-info" role="button"/>Szerkeztés</th>-->
+<!--                        <th><a th:href="@{'/delete/'+${vizsga.id}}" class="btn btn-danger" role="button"/>Törlés</th>-->
+                    </tr>
+
+                </table>
+            </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

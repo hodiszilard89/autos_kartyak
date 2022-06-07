@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html", charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+</head>
+<body >
+<title th:text="${pageTitle}">Prog. környezetek</title>
+</br>
+    <title>Spring proba</title>
+    <div class="container">
+
+        <div class="row">
+            <div class="text-left"> <h1>Kártya hozzáadás</h1> </div>
+            <div class="col text-right">
+                <a style="margin: 50px" th:href="@{'/gohome'}" class="btn btn-info" role="button"/>Menu</a>
+            </div>
+        </div>
+    </div>
+        <div class="row" style="margin: auto">
+            <div class="col-sm-4">
+
+                <form name="registration" th:action="@{/add}" th:method="post" th:object="${vizsga}" class="form-signin"
+                      >
+                    <div alight="left">
+                        <label class="form-label">Gyártó</label>
+                        <input type="text" th:field="*{vizsgaNev}" class="form-control" placeholder="Gyártó" id="vizsgaNev" required>
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Típús</label>
+                        <input type="text" class="form-control" placeholder="Típus" id="targyNeve" th:field="*{targyNev}" >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Teljesítmény</label>
+                        <input type="number" class="form-control" placeholder="Lóerő" id="helySzin" th:field="*{helySzin}" >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Gyorsulás</label>
+                        <input type="number" class="form-control" placeholder="0-100 km" id="targyNeve" th:field="*{targyNev}" >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Hengerek száma</label>
+                        <input type="number" class="form-control"  id="Hengerek száma" th:field="*{idoTartalom}" >
+                    </div>
+
+                    <div alight="left">
+                        <label class="form-label">Legnagyobb sebesség</label>
+                        <input type="number" class="form-control"  id="km/h" th:field="*{idoTartalom}" >
+                    </div>
+
+                    <div alight="right">
+                        <input type="submit"  id="submit" value="Hozzáadás" name="submit" class="btn btn-info">
+                        <input type="reset"  id="set" value="reset" name="reset" class="btn btn-warning">
+                    </div>
+                </form>
+            </div>
+
+
+
+            </div>
+        </div>
+
+
+</body>
+</html>
