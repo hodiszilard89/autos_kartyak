@@ -25,19 +25,19 @@
 </br></br></br></br>
 <div class="col-sm-4">
 
-    <form name="registration" th:action="@{/add}" th:method="post" th:object="${vizsga}" class="form-signin">
+
         <div alight="right">
-            <input type="submit"  id="submit" value="Hozzáadás" name="submit" class="btn btn-info">
+            <input th:href="@{'/hozzaad'}" type="submit"   value="Hozzáadás" name="submit" class="btn btn-info">
         </div>
         </br>
         <div alight="right">
-            <input type="submit"  id="submit" value="Szerkeztés" name="submit" class="btn btn-info">
+            <input th:href="@{'/kartyaszerk'}" type="submit"   value="Szerkeztés" name="submit" class="btn btn-info">
         </div>
         </br>
         <div alight="right">
-            <input type="submit"  id="submit" value="Lista" name="submit" class="btn btn-info">
+            <input th:href="@{'/hallgato'}" type="submit"   value="Lista" name="submit" class="btn btn-info">
         </div>
-    </form>
+
 </div>
 </body>
 </html>

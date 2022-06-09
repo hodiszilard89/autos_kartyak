@@ -17,43 +17,42 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
         <div class="row">
             <div class="text-left"> <h1>Kártya hozzáadás</h1> </div>
             <div class="col text-right">
-                <a style="margin: 50px" th:href="@{'/gohome'}" class="btn btn-info" role="button"/>Menu</a>
+                <a style="margin: 50px" th:href="@{'/menu'}" class="btn btn-info" role="button"/>Menu</a>
             </div>
         </div>
     </div>
         <div class="row" style="margin: auto">
             <div class="col-sm-4">
 
-                <form name="registration" th:action="@{/add}" th:method="post" th:object="${vizsga}" class="form-signin"
-                      >
+                <form name="registration" th:action="@{/add}" th:method="post" th:object="${kartya}" class="form-signin">
                     <div alight="left">
                         <label class="form-label">Gyártó</label>
-                        <input type="text" th:field="*{vizsgaNev}" class="form-control" placeholder="Gyártó" id="vizsgaNev" required>
+                        <input type="text" th:field="*{gyarto}" class="form-control" placeholder="Gyártó" id="vizsgaNev" >
                     </div>
 
                     <div alight="left">
                         <label class="form-label">Típús</label>
-                        <input type="text" class="form-control" placeholder="Típus" id="targyNeve" th:field="*{targyNev}" >
+                        <input type="text" class="form-control" placeholder="Típus" id="tipus" th:field="*{tipus}" >
                     </div>
 
                     <div alight="left">
                         <label class="form-label">Teljesítmény</label>
-                        <input type="number" class="form-control" placeholder="Lóerő" id="helySzin" th:field="*{helySzin}" >
+                        <input type="number" class="form-control" placeholder="Lóerő" id="uanyag" th:field="*{uanyag}" >
                     </div>
 
                     <div alight="left">
                         <label class="form-label">Gyorsulás</label>
-                        <input type="number" class="form-control" placeholder="0-100 km" id="targyNeve" th:field="*{targyNev}" >
+                        <input type="number" class="form-control" placeholder="0-100 km" id="telje" th:field="*{telje}" >
                     </div>
 
                     <div alight="left">
                         <label class="form-label">Hengerek száma</label>
-                        <input type="number" class="form-control"  id="Hengerek száma" th:field="*{idoTartalom}" >
+                        <input type="number" class="form-control"  id="hszam" th:field="*{hszam}" >
                     </div>
 
                     <div alight="left">
                         <label class="form-label">Legnagyobb sebesség</label>
-                        <input type="number" class="form-control"  id="km/h" th:field="*{idoTartalom}" >
+                        <input type="number" class="form-control"  id="lgsb" th:field="*{lgsb}" >
                     </div>
 
                     <div alight="right">

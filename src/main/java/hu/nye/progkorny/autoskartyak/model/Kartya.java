@@ -1,5 +1,10 @@
 package hu.nye.progkorny.autoskartyak.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
 public class Kartya {
 
 
@@ -12,8 +17,7 @@ public class Kartya {
     private int hszam;
     private int lgsb;
 
-    public Kartya() {
-    }
+    public Kartya(){}
 
     public Kartya(Long id, String gyarto, String tipus, Uzemanyag uanyag, int telje, int gyors, int hszam, int lgsb) {
         this.id= id;
