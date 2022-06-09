@@ -15,17 +15,26 @@ public class PageController {
 //
 private Kartya kartya=new Kartya(1L,"opel","astra", Uzemanyag.DIZEL,70,25,4,120);
 ////    private Kartya kartya= new Kartya();
-    @RequestMapping("/")
-    public String menu(){
 
+    @RequestMapping("/")
+    public String index(){
+
+        return "menu";
+    }
+    @PostMapping("/hozzaad")
+        public String hozzaad(Model model){
+            return "hozzaad";
+        }
+
+    @GetMapping("/menu")
+    public String menu(Model model){
+        model.addAttribute("kartya",new Kartya());
         return "menu";
     }
 
     @RequestMapping("/hozzaad")
     public String hozzad(Model model){
         model.addAttribute("kartya",new Kartya());
-
-
         return "hozzaad";
     }
 
