@@ -1,7 +1,7 @@
 package hu.nye.progkorny.autoskartyak.controller;
 
 import hu.nye.progkorny.autoskartyak.model.Kartya;
-import hu.nye.progkorny.autoskartyak.model.Uzemanyag;
+import hu.nye.progkorny.autoskartyak.service.KartyaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +9,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 
 @Controller
+
 public class PageController {
-//
-private Kartya kartya=new Kartya(1L,"opel","astra", Uzemanyag.DIZEL,70,25,4,120);
-////    private Kartya kartya= new Kartya();
+
+    private final KartyaService kartyaService;
+
+    public PageController(KartyaService kartyaService) {
+        this.kartyaService = kartyaService;
+    }
 
     @RequestMapping("/")
     public String index(){
@@ -42,10 +48,12 @@ private Kartya kartya=new Kartya(1L,"opel","astra", Uzemanyag.DIZEL,70,25,4,120)
     public String add(@ModelAttribute Kartya kartya){
         return "redirect:/hozzaad";
     }
-//
-    @RequestMapping("/list")
-    public String list(){
 
+    @RequestMapping("/list")
+    public String list(final Model model){
+        final List<Kartya> kartyak = kartyaService.getAllKartya();
+        System.out.println(kartyak.size());
+        model.addAttribute("kartyak", kartyak);
         return "list";
        }
 //    @RequestMapping("/kartyaszerk")

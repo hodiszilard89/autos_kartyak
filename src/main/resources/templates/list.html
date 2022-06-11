@@ -24,7 +24,7 @@
     <div class="row" style="margin: auto">
         <div class="col-sm-8">
             <div class="panel-body">
-                <table id="tbl-vizsga" class="table table-responsive table-bordered">
+                <table id="kartyak" class="table table-responsive table-bordered">
                     <thead >
                     <tr >
                         <th>Gyáró</th>
@@ -37,15 +37,15 @@
                         <th></th>
                     </tr>
 
-                    <tr th:each="kartya: ${kartya}" >
+                    <tr th:each="kartya: ${kartyak}" >
                         <th th:text="${kartya.gyarto}"/>
                         <th th:text="${kartya.tipus}"/>
                         <th th:text="${kartya.telje}"/>
                         <th th:text="${kartya.gyors}"/>
                         <th th:text="${kartya.hszam}"/>
                         <th th:text="${kartya.lgsb}"/>
-<!--                        <th><a th:href="@{'/vizsgafelvetel/'+${vizsga.id}}" class="btn btn-info" role="button"/>Szerkeztés</th>-->
-<!--                        <th><a th:href="@{'/delete/'+${vizsga.id}}" class="btn btn-danger" role="button"/>Törlés</th>-->
+                        <th><a th:href="@{'/kartyaszerk/'+${kartya.id}}" class="btn btn-info" role="button"/>Szerkeztés</th>
+                        <th><a th:href="@{'/delete/'+${kartya.id}}" class="btn btn-danger" role="button"/>Törlés</th>
                     </tr>
 
                 </table>
