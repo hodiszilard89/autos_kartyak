@@ -14,5 +14,5 @@ public interface KartyaService {
 
   void deleteKartya(Long id);
 
-  void updateKartya(Long id, Kartya modKartya);
+  Kartya updateKartya(Long id, Kartya modKartya);
 }

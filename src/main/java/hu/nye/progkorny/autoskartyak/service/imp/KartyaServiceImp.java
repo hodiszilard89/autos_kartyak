@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class KartyaServiceImp implements KartyaService {
@@ -50,9 +51,16 @@ public class KartyaServiceImp implements KartyaService {
   }
 
   @Override
-  public void updateKartya(Long id, Kartya modKartya) {
-    int index = inMdb.indexOf(getKartya(id));
-    inMdb.set(index, modKartya);
+  public Kartya updateKartya(Long id, Kartya modKartya) {
+    final Kartya kartya = getKartya(id);
+    kartya.setGyarto(modKartya.getGyarto());
+    kartya.setTipus(modKartya.getTipus());
+    kartya.setUanyag(modKartya.getUanyag());
+    kartya.setHszam(modKartya.getHszam());
+    kartya.setLgsb(modKartya.getLgsb());
+    kartya.setTelje(modKartya.getTelje());
+    kartya.setGyors(modKartya.getGyors());
+    return kartya; //ezzel sokat szenvedtem tesztnél :|
   }
 
   @Override

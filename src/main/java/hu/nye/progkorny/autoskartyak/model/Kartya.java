@@ -3,6 +3,7 @@ package hu.nye.progkorny.autoskartyak.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Objects;
 
 
 public class Kartya {
@@ -95,4 +96,29 @@ public class Kartya {
   public void setUanyag(Uzemanyag uanyag) {
     this.uanyag = uanyag;
   }
+
+  @Override
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Kartya)) {
+      return false;
+    }
+    final Kartya kartya = (Kartya) o;
+    return Objects.equals(id, kartya.id)
+            && Objects.equals(gyarto, kartya.gyarto)
+            && Objects.equals(tipus, kartya.tipus)
+            && uanyag == kartya.uanyag
+            && telje == kartya.telje
+            && gyors == kartya.gyors
+            && hszam == kartya.hszam
+            && lgsb == kartya.lgsb;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, gyarto, tipus, uanyag, telje, gyors, hszam, lgsb);
+  }
+
 }
