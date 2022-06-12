@@ -45,8 +45,9 @@ public class KartyaServiceImp implements KartyaService {
     }
 
     @Override
-    public Kartya updateKartya(Long id, Kartya modKartya) {
-        return null;
+        public void updateKartya(Long id, Kartya modKartya) {
+        int index = inM_Db.indexOf(getKartya(id));
+        inM_Db.set(index,modKartya);
     }
 
     @Override

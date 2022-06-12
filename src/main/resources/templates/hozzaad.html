@@ -36,6 +36,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
                     </div>
 
                     <div alight="left">
+                        <label class="form-label">Üzemanyag</label>
+                        <select th:field="*{uanyag}" style="margin: 25px" >
+                            <option th:each="uanyag : ${T(hu.nye.progkorny.autoskartyak.model.Uzemanyag).values()}"
+                                th:value="${uanyag}" th:text="${uanyag}"></option>
+                        </select>
+                    </div>
+
+                    <div alight="left">
                         <label class="form-label">Teljesítmény</label>
                         <input type="number" class="form-control" placeholder="Lóerő" id="uanyag" th:field="*{uanyag}" >
                     </div>

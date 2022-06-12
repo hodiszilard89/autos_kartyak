@@ -12,7 +12,7 @@ public interface KartyaService {
 
     Kartya createKartya(Kartya kartya);
 
-    Kartya updateKartya(Long id, Kartya modKartya);
+    void updateKartya(Long id, Kartya modKartya);
 
     void deleteKartya(Long id);
 

@@ -2,12 +2,10 @@ package hu.nye.progkorny.autoskartyak.controller;
 
 import hu.nye.progkorny.autoskartyak.model.Kartya;
 import hu.nye.progkorny.autoskartyak.service.KartyaService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,10 +25,7 @@ public class PageController {
 
         return "menu";
     }
-    @PostMapping("/hozzaad")
-        public String hozzaad(Model model){
-            return "hozzaad";
-        }
+
 
     @GetMapping("/menu")
     public String menu(Model model){
@@ -38,29 +33,49 @@ public class PageController {
         return "menu";
     }
 
-    @RequestMapping("/hozzaad")
-    public String hozzad(Model model){
-        model.addAttribute("kartya",new Kartya());
+    @RequestMapping ("/hozzaad")
+    public String hozzad( Model model){
+        model.addAttribute("kartya", new Kartya());
         return "hozzaad";
     }
 
     @PostMapping("/add")
     public String add(@ModelAttribute Kartya kartya){
+        kartyaService.createKartya(kartya);
         return "redirect:/hozzaad";
     }
 
-    @RequestMapping("/list")
+
+
+    @GetMapping("/list")
     public String list(final Model model){
         final List<Kartya> kartyak = kartyaService.getAllKartya();
-        System.out.println(kartyak.size());
         model.addAttribute("kartyak", kartyak);
         return "list";
        }
-//    @RequestMapping("/kartyaszerk")
-//    public String kartyaszerk(){
-//
-//        return "kartyaszerk";
-//    }
+
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable(name="id")Long id){
+        kartyaService.deleteKartya(id);
+        return "redirect:/list";
+    }
+
+    @GetMapping("/list/kartyaszerk/{id}")
+    public String szerkezt(@PathVariable Long id, Model model){
+        model.addAttribute("kartya",kartyaService.getKartya(id));
+        return "kartyaszerk";
+    }
+
+    @PostMapping("/list/{id}")
+
+        public String kartyaszerk(@PathVariable Long id,
+                                  @ModelAttribute("kartya") Kartya ujKartya
+                                  ) {
+        kartyaService.updateKartya(id, ujKartya);
+
+        return "redirect:/list";
+    }
 
 
 }

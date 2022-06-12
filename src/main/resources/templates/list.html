@@ -29,6 +29,7 @@
                     <tr >
                         <th>Gyáró</th>
                         <th>Típus</th>
+                        <th>Üzemanyag</th>
                         <th>Teljesítmény</th>
                         <th>Gyorsulás 0-100km</th>
                         <th>Hengerek száma</th>
@@ -40,11 +41,12 @@
                     <tr th:each="kartya: ${kartyak}" >
                         <th th:text="${kartya.gyarto}"/>
                         <th th:text="${kartya.tipus}"/>
+                        <th th:text="${kartya.uanyag}"/>
                         <th th:text="${kartya.telje}"/>
                         <th th:text="${kartya.gyors}"/>
                         <th th:text="${kartya.hszam}"/>
                         <th th:text="${kartya.lgsb}"/>
-                        <th><a th:href="@{'/kartyaszerk/'+${kartya.id}}" class="btn btn-info" role="button"/>Szerkeztés</th>
+                        <th><a th:href="@{'/list/kartyaszerk/'+${kartya.id}}" class="btn btn-info" role="button"/>Szerkeztés</th>
                         <th><a th:href="@{'/delete/'+${kartya.id}}" class="btn btn-danger" role="button"/>Törlés</th>
                     </tr>
 

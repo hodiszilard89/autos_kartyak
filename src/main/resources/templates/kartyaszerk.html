@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymleaf.org ">
+      xmlns:th="http://www.thymeleaf.org"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html" , charset="UTF-8">
@@ -18,40 +18,48 @@
     <div class="row">
         <div class="text-left"> <h1>Kártya szerkeztése</h1> </div>
         <div class="col text-right">
-            <a style="margin: 50px" th:href="@{'/gohome'}" class="btn btn-info" role="button"/>Menu</a>
+            <a style="margin: 50px" th:href="@{'/menu'}" class="btn btn-info" role="button"/>Menu</a>
         </div>
     </div>
 </div>
 <div class="col-sm-4">
-    <form class="card" method="post" action="#" th:action="@{/index}" th:object="${vizsga}">
+    <form th:action="@{'/list/'+${kartya.id}}"  th:object = "${kartya}" method="POST">
         <div alight="left">
             <label class="form-label">Gyártó</label>
-            <input type="text" th:field="*{vizsgaNev}" class="form-control"  id="vizsgaNev" required>
+            <input type="text" th:field="${kartya.gyarto}" class="form-control"  id="vizsgaNev" required>
         </div>
         <div alight="left">
             <label class="form-label">Típús</label>
-            <input type="text" th:field="*{targyNev}"class="form-control"  id="targyNeve" required>
+            <input type="text" th:field="${kartya.tipus}"class="form-control"  id="targyNeve" required>
         </div>
+
+        <div alight="left">
+            <label class="form-label">Üzemanyag</label>
+            <select th:field="${kartya.uanyag}" style="margin: 25px" >
+                <option th:each="uanyag : ${T(hu.nye.progkorny.autoskartyak.model.Uzemanyag).values()}"
+                        th:value="${uanyag}" th:text="${uanyag}"></option>
+            </select>
+        </div>
+
         <div alight="left">
             <label class="form-label">Teljesítmény</label>
-            <input type="number" th:field="*{helySzin}" class="form-control" id="helySzin" required>
+            <input type="number" th:field="${kartya.telje}" class="form-control" id="helySzin" required>
         </div>
         <div alight="left">
             <label class="form-label">Gyorsúlás</label>
-            <input type="number" th:field="*{idoPont}" class="form-control" id="idoPont" required>
+            <input type="number" th:field="${kartya.gyors}" class="form-control" id="idoPont" required>
         </div>
         <div alight="left">
             <label class="form-label">Hengerek száma</label>
-            <input type="number" th:field="*{datum}" class="form-control" id="datum" required>
+            <input type="number" th:field="${kartya.hszam}" class="form-control" id="datum2" required>
         </div>
         <div alight="left">
             <label class="form-label">Legnagyobb sebesség</label>
-            <input type="number" th:field="*{datum}" class="form-control" id="datum" required>
+            <input type="number" th:field="${kartya.lgsb}" class="form-control" id="datum" required>
         </div>
 
         <div alight="right">
             <input type="submit" id="submit" value="frissítés" name="refresh" class="btn btn-info">
-
         </div>
     </form>
 </div>
