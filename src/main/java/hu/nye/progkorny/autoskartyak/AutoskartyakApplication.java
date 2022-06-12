@@ -6,10 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("hu.nye")
+
 public class AutoskartyakApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(AutoskartyakApplication.class, args);
-	}
-
+  public static void main(final String[] args) {
+    SpringApplication.run(AutoskartyakApplication.class, args);
+  }
 }

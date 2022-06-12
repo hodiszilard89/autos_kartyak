@@ -6,16 +6,13 @@ import java.util.List;
 
 public interface KartyaService {
 
-    List<Kartya> getAllKartya();
+  List<Kartya> getAllKartya();
 
-    Kartya getKartya(Long id);
+  Kartya getKartya(Long id);
 
-    Kartya createKartya(Kartya kartya);
+  Kartya createKartya(Kartya kartya);
 
-    void updateKartya(Long id, Kartya modKartya);
+  void deleteKartya(Long id);
 
-    void deleteKartya(Long id);
-
-
-
+  void updateKartya(Long id, Kartya modKartya);
 }
