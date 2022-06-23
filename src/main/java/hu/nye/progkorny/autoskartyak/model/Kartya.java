@@ -8,7 +8,6 @@ import java.util.Objects;
 
 public class Kartya {
 
-
   private Long id;
   private String gyarto;
   private String tipus;
